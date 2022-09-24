@@ -173,7 +173,7 @@ class Raytracer(object):
                 # Origen del vector de refracción
                 refractOrig = np.subtract(intersect.point, bias) if outside else np.add(intersect.point, bias)
                 refractColor = self.cast_ray(refractOrig, refract, None, recursion + 1)
-                reflectColor = np.array(reflectColor)
+                reflectColor = np.array(refractColor)
 
             finalColor = reflectColor * kr + refractColor * (1 - kr) + specColor
 
